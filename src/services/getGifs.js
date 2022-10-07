@@ -6,8 +6,12 @@ export default function getGifs({ keyword = 'morty' } = {}) {
     return fetch(apiURL)
         .then((res) => res.json())
         .then(response => {
-            const { data } = response
-            const gifs = data.map(image => image.images.downsized_medium.url)
-            return gifs
+            const { data } = response;
+            const gifs = data.map(image => {
+                const { images, title, id } = image;
+                const { url } = image.images.downsized_medium;
+                return { title, id, url, images };
+            })
+            return gifs;
         })
 }
