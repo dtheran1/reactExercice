@@ -1,3 +1,4 @@
+
 const apiKey = '19B5B1KbY7NstETrqnE05DunzVRVlV9G&q'
 
 export default function getGifs({ keyword = 'morty' } = {}) {
